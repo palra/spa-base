@@ -1,0 +1,71 @@
+<form class="form-horizontal" name="messageForm" ng-submit="sendMessage()">
+	<fieldset>
+
+	<!-- Form Name -->
+	<legend>{{formTitle}}</legend>
+
+	<!-- Text input-->
+	<div class="form-group" ng-class="{'has-error': messageForm.title.$invalid}">
+		<label class="control-label col-md-2" for="title">Title</label>
+		<div class="col-md-10">
+			<input
+				id="messageTitle"
+				name="title"
+				type="text"
+				class="form-control"
+				ng-model="title"
+				ng-minlength="10"
+				ng-maxlength="254"
+				required
+			>
+			<span class="help-block" ng-show="messageForm.title.$error.required">
+				The title field is required.
+			</span>
+			<span class="help-block" ng-show="messageForm.title.$error.minlength">
+				The title field should be at least 10 characters long.
+			</span>
+			<span class="help-block" ng-show="messageForm.title.$error.maxlength">
+				The title field should not be more than 254 characters long.
+			</span>
+			<span class="help-block" ng-if="errors.title">
+				{{errors.title.message}}
+			</span>
+		</div>
+	</div>
+
+	<!-- Textarea -->
+	<div class="form-group" ng-class="{'has-error': messageForm.message.$invalid}">
+		<label class="control-label col-md-2" for="message">Message</label>
+		<div class="col-md-10">                     
+			<textarea 
+				id="messageMessage"
+				name="message"
+				class="form-control"
+				rows="8"
+				ng-model="message"
+				ng-minlength="50"
+				required
+			></textarea>
+			<span class="help-block" ng-show="messageForm.message.$error.required">
+				The message field is required.
+			</span>
+			<span class="help-block" ng-show="messageForm.message.$error.minlength">
+				The title field should be at least 50 characters long.
+			</span>
+			<span class="help-block" ng-if="errors.message">
+				{{errors.message.message}}
+			</span>
+		</div>
+	</div>
+
+	<input
+		id="singlebutton"
+		type="submit"
+		name="singlebutton"
+		class="btn btn-primary btn-block"
+		ng-disabled="messageForm.$invalid"
+		value="Send"
+	/>
+
+	</fieldset>
+</form>

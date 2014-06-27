@@ -1,0 +1,45 @@
+<h1>Messages</h1>
+<hr>
+<div ng-if="messages.length > 0">
+	<div class="row">
+		<div class="col-md-4" ng-repeat="m in messages">
+			<article class="panel panel-primary">
+				<div class="panel-heading no-overflow">
+					<h3 class="panel-title">{{ m.title }}</h3>
+				</div>
+				<div class="panel-body no-overflow">
+					{{ m.message|trim : 200 }}
+				</div>
+				<div class="panel-footer">
+					Posted on {{ m.createdAt|date : 'mediumDate' }} at {{ m.createdAt|date : 'shortTime'}}
+					<span ng-if="m.createdAt != m.updatedAt">
+					, edited on {{ m.updatedAt|date : 'mediumDate' }} at {{ m.updatedAt|date : 'shortTime'}}
+					</span> - 
+					<a ng-href="#/messages/{{m._id}}">See the full message</a>
+				</div>
+			</article>
+		</div>
+	</div>	
+	<pager
+		total-items="pagination.total"
+		ng-model="pagination.page"
+		items-by-page="pagination.byPage"
+		ng-change="loadMessages()"
+	></pager>
+	<div class="row">
+		<div class="col-xs-12">
+			<a href="#/messages/new" class="btn btn-info btn-block">New message</a>		
+		</div>
+	</div>
+</div>
+<div ng-if="messages.length == 0">
+	<div class="row">
+		<div class="col-xs-12">
+			<alert class="text-center" type="warning">
+				No messages were found.
+				<a href="#/messages/new">Post a new one !</a>
+			</alert>
+		</div>
+	</div>
+</div>
+<br />
