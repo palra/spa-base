@@ -62,7 +62,9 @@
     </div>
 
     <div class="row">
-      <alert ng-repeat="alert in flashbag" type="{{alert.type}}" close="closeFlash($index)">{{ alert.msg }}</alert>
+      <div class="col-xs-12 "ng-repeat="alert in flashbag">
+        <alert type="{{alert.type}}" close="closeFlash($index)">{{ alert.msg }}</alert>
+      </div>
     </div>
 
     <div ui-view="main"></div>

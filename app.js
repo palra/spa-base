@@ -3,7 +3,7 @@ var server = require('./server');
 var cp = require('child_process');
 var grunt = cp.spawn('grunt', [
 	'--gruntfile',
-	'client/Gruntfile.js',
+	__dirname+'/client/Gruntfile.js',
 	'--force',
 	'watch'
 ]);
