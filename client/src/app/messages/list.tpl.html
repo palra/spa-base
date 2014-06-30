@@ -15,7 +15,7 @@
 					<span ng-if="m.createdAt != m.updatedAt">
 					, edited on {{ m.updatedAt|date : 'mediumDate' }} at {{ m.updatedAt|date : 'shortTime'}}
 					</span> - 
-					<a ng-href="#/messages/{{m._id}}">See the full message</a>
+					<a ng-href="/messages/{{m._id}}">See the full message</a>
 				</div>
 			</article>
 		</div>
@@ -28,7 +28,7 @@
 	></pager>
 	<div class="row">
 		<div class="col-xs-12">
-			<a href="#/messages/new" class="btn btn-info btn-block">New message</a>		
+			<a href="/messages/new" class="btn btn-info btn-block">New message</a>		
 		</div>
 	</div>
 </div>
@@ -37,7 +37,7 @@
 		<div class="col-xs-12">
 			<alert class="text-center" type="warning">
 				No messages were found.
-				<a href="#/messages/new">Post a new one !</a>
+				<a href="/messages/new">Post a new one !</a>
 			</alert>
 		</div>
 	</div>
