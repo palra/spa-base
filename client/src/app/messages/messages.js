@@ -16,7 +16,6 @@ angular.module( 'webapp.messages', [
   'ui.router',
   'ui.bootstrap',
   'webapp.filters',
-  'webapp.validator',
   'ngResource'
 ])
 

@@ -1,0 +1,16 @@
+{
+  "author": "Loïc Payol",
+  "name": "spa-base",
+  "version": "0.0.1",
+  "homepage": "https://github.com/palra/spa-base",
+  "licenses": {
+    "type": "MIT",
+    "url": "https://raw.githubusercontent.com/palra/spa-base/master/LICENSE"
+  },
+  "bugs": "https://github.com/palra/spa-base/issues",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:palra/spa-base.git"
+  },
+  "dependencies": {},
+}

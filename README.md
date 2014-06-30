@@ -1,4 +1,8 @@
-spa-base
+SPA base project
 ========
 
-A base project for SPA with ngBoilerplate (angular.js) and Express.js.
+A base project for SPAs with ngBoilerplate (angular.js) and Express.js.
+
+```
+node app
+```
