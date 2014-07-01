@@ -10,7 +10,7 @@ namespace '/messages', MessageNamespace = (router) ->
 				if req.message isnt null
 					next()
 				else
-					next new Error "Message ##{id} not found."
+					next new mongoose.Error.NotFound id
 
 	get '/', ListMessages = (req, res, next) ->
 		Message.count {}, (err, count) ->
