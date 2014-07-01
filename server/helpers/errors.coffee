@@ -1,10 +1,20 @@
+mongoose.Error.NotFound = (id) ->
+	@name = 'NotFound'
+	@message = "Document ##{id} not found"
+	@stack = (new mongoose.Error()).stack
+mongoose.Error.NotFound:: = new mongoose.Error
+
 module.exports = 
 	db: (err, req, res, next) ->
 		if err instanceof mongoose.Error.CastError
 			res.respond 
 				message: 'Invalid ID'
 				code: 'DB010'
-			, true, 404
+			, true, 400
+		else if err instanceof mongoose.Error.NotFound
+			res.respond _.merge(err,
+				code: 'DB011'
+			), true, 404
 		else if err instanceof mongoose.Error.ValidationError
 			res.respond _.merge(err,
 				code: 'DB020'

@@ -10,7 +10,6 @@ namespace '/messages', MessageNamespace = (router) ->
 				if req.message isnt null
 					next()
 				else
-					res.respond "Message ##{id} not found.", true, 404
 					next new Error "Message ##{id} not found."
 
 	get '/', ListMessages = (req, res, next) ->
